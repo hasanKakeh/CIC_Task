@@ -26,17 +26,17 @@ export class CitiesService {
     let cities = this.cities$.getValue();
     const index = cities.findIndex(({ id }) => city.id === id);
     if (index === -1) {
-      cities.push({ ...city, id: this.getLastCityId() + 1 });
-      this.cities$.next(cities);
+      this.cities$.next([...cities, { ...city, id: this.getLastCityId() + 1 }]);
       return;
     }
-    cities[index] = city;
-    this.cities$.next(cities);
+    const temp = [...cities];
+    temp[index] = city;
+    this.cities$.next(temp);
   }
 
   delete(id: number) {
     let cities = this.cities$.getValue();
-    cities = cities.filter((city) => city.id != id);
-    this.cities$.next(cities);
+    const temp = cities.filter((city) => city.id != id);
+    this.cities$.next(temp);
   }
 }

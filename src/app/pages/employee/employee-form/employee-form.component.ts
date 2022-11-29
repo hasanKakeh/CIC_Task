@@ -1,4 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from '../employee.service';
@@ -8,6 +13,7 @@ import { Subscription } from 'rxjs';
   selector: 'employee-form',
   templateUrl: './employee-form.component.html',
   styleUrls: ['./employee-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeFormComponent implements OnInit, OnDestroy {
   employeeForm: FormGroup;
@@ -36,6 +42,7 @@ export class EmployeeFormComponent implements OnInit, OnDestroy {
   }
   submit() {
     this._es.addEmployee(this.employeeForm.value);
+    this.employeeForm.markAsPristine();
   }
   reset() {
     this.employeeForm.reset({ ...this.employee });

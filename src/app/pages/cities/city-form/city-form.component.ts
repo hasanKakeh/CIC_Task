@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { City } from 'src/app/models/city';
 import { ModalService } from 'src/app/shared/services/modal.service';
@@ -8,6 +13,7 @@ import { CitiesService } from '../cities.service';
   selector: 'city-form',
   templateUrl: './city-form.component.html',
   styleUrls: ['./city-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CityFormComponent implements OnInit {
   @Input() city: City;

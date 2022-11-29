@@ -4,7 +4,6 @@ import {
   Input,
   ChangeDetectionStrategy,
   ViewChild,
-  ChangeDetectorRef,
 } from '@angular/core';
 import {
   ControlContainer,
@@ -66,7 +65,6 @@ export class NumberInputComponent implements ControlValueAccessor {
   }
   constructor(
     private controlContainer: ControlContainer,
-    private _cdr: ChangeDetectorRef
   ) {}
 
   checkIfPositive(e: KeyboardEvent) {
@@ -85,7 +83,6 @@ export class NumberInputComponent implements ControlValueAccessor {
     this.formControlDirective.valueAccessor.writeValue(obj);
   }
   setDisabledState(isDisabled: boolean): void {
-    this._cdr.markForCheck();
     this.formControlDirective.valueAccessor.setDisabledState(isDisabled);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { ValidationService } from 'src/app/shared/services/validation.service';
@@ -6,6 +6,7 @@ import { ValidationService } from 'src/app/shared/services/validation.service';
   selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent implements OnInit {
   validationMessages: any = {
@@ -43,7 +44,7 @@ export class LoginComponent implements OnInit {
       this.validationMessages
     );
   }
- 
+
   submit() {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);

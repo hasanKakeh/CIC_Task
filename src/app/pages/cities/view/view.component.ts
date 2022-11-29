@@ -1,4 +1,10 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import { ModalService } from 'src/app/shared/services/modal.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { CitiesService } from '../cities.service';
@@ -9,6 +15,7 @@ import { Observable } from 'rxjs';
   selector: 'view',
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ViewComponent implements OnInit {
   @ViewChild('cityForm') cityForm: TemplateRef<unknown>;

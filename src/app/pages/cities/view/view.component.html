@@ -18,7 +18,7 @@
         [data]="
           data
             | async
-            | filter: formGroup.controls['search'].value:'country':'city'
+            | filter: formGroup.controls['search'].value:'country':'name'
         "
         (onClickAction)="onClickActionTable($event)"
       ></data-table>
