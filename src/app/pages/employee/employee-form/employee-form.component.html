@@ -1,0 +1,38 @@
+<form [formGroup]="employeeForm" (ngSubmit)="submit()">
+  <text-input formControlName="name" label="Name"></text-input>
+  <number-input
+    class="mt-2"
+    formControlName="age"
+    label="Age"
+    [minValue]="0"
+  ></number-input>
+  <date-input
+    class="mt-2"
+    formControlName="birthOfDate"
+    label="Birth of date"
+  ></date-input>
+  <text-input
+    class="mt-2"
+    formControlName="address"
+    label="Address"
+  ></text-input>
+  <button type="submit" class="btn btn-primary mt-3">
+    {{ employee?.id != null ? "Edit" : "Add" }}
+  </button>
+  <button
+    *ngIf="employeeForm.dirty"
+    type="button"
+    (click)="reset()"
+    class="btn btn-info ms-3 mt-3"
+  >
+    Reset
+  </button>
+  <button
+    *ngIf="employee?.id != null"
+    type="button"
+    (click)="deleteEmployee()"
+    class="btn btn-danger ms-3 mt-3"
+  >
+    Delete
+  </button>
+</form>

@@ -1,0 +1,31 @@
+<div>
+  <h2 *ngIf="!isEdit">Add city</h2>
+  <h2 *ngIf="isEdit">Edit city</h2>
+</div>
+<form [formGroup]="cityForm" (ngSubmit)="submit()">
+  <text-input
+    formControlName="country"
+    [formControlError]="formErrors.country"
+    label="Country"
+  ></text-input>
+  <text-input
+    class="mt-2"
+    formControlName="name"
+    [formControlError]="formErrors.name"
+    label="City"
+  ></text-input>
+  <text-input
+    class="mt-2"
+    formControlName="code"
+    [formControlError]="formErrors.code"
+    label="Code"
+  ></text-input>
+  <div class="mt-4 float-end">
+    <button class="btn btn-secondary px-3" type="button" (click)="close()">
+      Close
+    </button>
+    <button class="btn btn-primary px-3 ms-2">
+      {{ isEdit ? "Edit" : "Add" }}
+    </button>
+  </div>
+</form>
