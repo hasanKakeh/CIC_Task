@@ -2,6 +2,7 @@
   <div class="container">
     <span class="navbar-brand mb-0 h1">{{ user || "User Name" }}</span>
     <button
+      *ngIf="user"
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
