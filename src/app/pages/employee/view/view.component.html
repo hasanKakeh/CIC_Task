@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="title">Employees</h1>
+  <div class="cards">
+    <employee-card
+      *ngFor="let emplo of employees$ | async"
+      [employee]="emplo"
+    ></employee-card>
+  </div>
+  <button class="btn-float" (click)="openModal(employeeForm)">
+    <i class="fa fa-plus"></i>
+  </button>
+</div>
+<ng-template #employeeForm let-model>
+  <div class="modal-body">
+    <employee-form></employee-form>
+  </div>
+</ng-template>
