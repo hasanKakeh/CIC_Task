@@ -1,0 +1,46 @@
+@use "../abstract" as *;
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background-color: unset;
+  border: unset;
+  animation: show 0.4s;
+  color: $light-gray;
+  transition: all 0.3s;
+  &.remove {
+    opacity: 0;
+    * {
+      cursor: unset !important;
+    }
+  }
+  &-item {
+    margin: 0 auto;
+    border-radius: 0.2rem;
+    background-color: $gray;
+    padding: 1.25rem;
+  }
+}
+@keyframes show {
+  from {
+    scale: 0.5;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cards {
+    * {
+      margin: 0 auto;
+    }
+  }
+}
