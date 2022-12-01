@@ -1,0 +1,23 @@
+<div
+  (transitionend)="deleteEmployee()"
+  [ngClass]="{ remove: remove }"
+  class="card"
+>
+  <div class="card-item">
+    <a class="close-btn" (click)="remove = true"><i class="fa fa-close"></i></a>
+    <div>
+      <span>Name :</span>
+      <span class="ms-2">{{ employee?.name }}</span>
+    </div>
+    <div class="mt-3">
+      <span>Age :</span><span class="ms-2">{{ employee?.age }}</span>
+    </div>
+    <div class="mt-3">
+      <span>Birth of date :</span
+      ><span class="ms-2">{{ employee?.birthOfDate | date }}</span>
+    </div>
+    <div class="mt-3">
+      <span>Address :</span><span class="ms-2">{{ employee?.address }}</span>
+    </div>
+  </div>
+</div>
