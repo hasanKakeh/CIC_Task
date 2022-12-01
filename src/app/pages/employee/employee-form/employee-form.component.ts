@@ -19,7 +19,7 @@ export class EmployeeFormComponent implements OnInit {
     birthOfDate: { required: 'Birth of date is reqiured' },
   };
   employeeForm: FormGroup;
-  employee: Employee;
+  // employee: Employee;
   formErrors: any = {};
   constructor(
     private _es: EmployeeService,
@@ -62,7 +62,7 @@ export class EmployeeFormComponent implements OnInit {
     }
   }
   reset() {
-    this.employeeForm.reset({ ...this.employee });
+    // this.employeeForm.reset({ ...this.employee });
   }
   close() {
     this._ms.close();
